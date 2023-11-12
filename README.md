@@ -10,12 +10,9 @@ Python 3.x即可
 
 <h2>（二）安装依赖</h2>
 使用如下命令安装pypinyin和pydub</p>
-```pip install pypinyin pydub
-```
-</p>
+<code>pip install pypinyin pydub</code>
 <h2>（三）Enjoy it!</h2>
 克隆本仓库，然后进入<code>Chinese2Audio</code>目录，执行如下命令：</p>
-```python audio.py
-```
+<code>python audio.py</code>
 </p></p>
 <strong>目前仅支持中文发音，数字/英文/数学符号发音暂不支持</strong>
