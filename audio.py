@@ -21,6 +21,10 @@ def is_punctuation(char):
 
 def audio(char, text):
     out = char
+
+
+
+
     #a
     if char == "a" or char == "ā" or char == "á" or char == "ǎ" or char == "à":
         if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "n":
@@ -64,6 +68,8 @@ def audio(char, text):
         else:
             out = char
             
+
+
     #i
     elif char == "i" or char == "i" or char == "ī" or char == "í" or  char == "ǐ" or char == "ì":
         if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "n":
@@ -81,10 +87,6 @@ def audio(char, text):
             out = ''
         elif i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "u" or  i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ū" or  i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ú" or  i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǔ" or  i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ù":
             out = char + pinyin_string[i + 1]
-
-
-
-
         else:
             out = char
 
@@ -202,6 +204,10 @@ def audio(char, text):
 
 
     ######n与g等的检测
+            #y
+    elif char == "y":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "e" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ē" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "é" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ě" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "è":
+            out = char + pinyin_string[i + 1]
     elif char == "n":
         if i - 1 >= 0 and (pinyin_string[i - 1] == "a" or pinyin_string[i - 1] == "ā" or pinyin_string[i - 1] == "á" or pinyin_string[i - 1] == "ǎ" or pinyin_string[i - 1] == "à") or i - 1 >= 0 and pinyin_string[i - 1] == "o" or pinyin_string[i - 1] == "ō" or pinyin_string[i - 1] == "ó" or pinyin_string[i - 1] == "ǒ" or pinyin_string[i - 1] == "ò" or i - 1 >= 0 and pinyin_string[i - 1] == "e" or pinyin_string[i - 1] == "ē" or pinyin_string[i - 1] == "é" or pinyin_string[i - 1] == "ě" or pinyin_string[i - 1] == "è":
             out = ''
@@ -227,13 +233,10 @@ def audio(char, text):
             out = ''
         else:
             out = char
-
-    #y
-    elif char == "y":
-        if 1 + 1 < len(pinyin_string) and pinyin_string[i + 1] == "e" or 1 + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ē" or 1 + 1 < len(pinyin_string) and pinyin_string[i + 1] == "é" or 1 + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ě" or 1 + 1 < len(pinyin_string) and pinyin_string[i + 1] == "è":
-            out = char + pinyin_string[i + 1]
+    
 
 
+            
     else:
         if is_punctuation(text) == True or text == "、" or text == "，" or text == "。" or text == "？" or text == "《" or text == "》" or text == "“" or text == "”" or text == "——" or text == "【" or text == "】" or text == "：":
             out = "none"
@@ -283,7 +286,7 @@ try:
                         combined_audio = combined_audio.speedup(playback_speed=3)
                         combined_audio = combined_audio + 5
                         play(combined_audio)
-                        os.remove(cache)                
+                        #os.remove(cache)                
                 elif len(lines) == 2:
                         audio1 = "audio/" + lines[0].rstrip("\n") + ".mp3"
                         audio2 = "audio/" + lines[1].rstrip("\n") + ".mp3"
@@ -297,7 +300,7 @@ try:
                         combined_audio = combined_audio.speedup(playback_speed=3)
                         combined_audio = combined_audio + 5
                         play(combined_audio)
-                        os.remove(cache)
+                        #os.remove(cache)
                 elif len(lines) == 3:
                         audio1 = "audio/" + lines[0].rstrip("\n") + ".mp3"
                         audio2 = "audio/" + lines[1].rstrip("\n") + ".mp3"
