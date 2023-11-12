@@ -2,7 +2,7 @@
 ~~非常抽象的~~语音合成实现
 
 <h2>效果截图(真的很抽象)</h2></p>
-![screenshot](image/screenshot.png)</p>
+![screenshot](./image/screenshot.png)</p>
 
 <h2>（一）环境要求</h2>
 Python 3.x即可
