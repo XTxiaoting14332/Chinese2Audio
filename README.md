@@ -2,7 +2,8 @@
 ~~非常抽象的~~语音合成实现
 
 <h2>效果截图(真的很抽象)</h2></p>
-![screenshot](./image/screenshot.png)</p>
+![screenshot](https://github.com/XTxiaoting14332/Chinese2Audio/assets/96647974/f1ef28b5-076f-41d9-9625-eca890092b12)
+
 
 <h2>（一）环境要求</h2>
 Python 3.x即可
