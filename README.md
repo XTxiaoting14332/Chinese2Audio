@@ -22,4 +22,4 @@ pip install pypinyin pydub
 python audio.py
 ```
 </p></p>
-<strong>目前仅支持中文发音，数字/英文/数学符号发音暂不支持</strong>
+<strong>目前仅支持中文、数字、小数点、加减乘除符号的朗读，英文朗读暂不支持</strong>
