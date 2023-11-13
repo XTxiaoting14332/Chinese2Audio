@@ -355,7 +355,7 @@ try:
                         combined_audio = combined_audio.speedup(playback_speed=4)
                         combined_audio = combined_audio + 5
                         play(combined_audio)
-                        #os.remove(cache)
+                        os.remove(cache)
                 elif len(lines) == 3:
                         audio1 = "audio/" + lines[0].rstrip("\n") + ".mp3"
                         audio2 = "audio/" + lines[1].rstrip("\n") + ".mp3"
