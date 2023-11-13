@@ -79,6 +79,8 @@ def audio(char, text):
                 out = char + "n"
         if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "e" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ē" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "é" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ě" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "è":
             out = char + pinyin_string[i + 1]
+        if i - 1 >= 0 and pinyin_string[i - 1] == "e" or i - 1 >= 0 and pinyin_string[i - 1] == "ē" or i - 1 >= 0 and pinyin_string[i - 1] == "é" or i - 1 >= 0 and pinyin_string[i - 1] == "ě" or i - 1 >= 0 and pinyin_string[i - 1] == "è":
+            out = ''
         elif i - 1 >= 0 and pinyin_string[i - 1] == "z" or i - 1 >= 0 and pinyin_string[i - 1] == "c" or i - 1 >= 0 and pinyin_string[i - 1] == "s" or i - 1 >= 0 and pinyin_string[i - 1] == "r":
             out = ''
         elif i - 1 >=0 and pinyin_string[i - 1] == "h" or i - 1 >=0 and pinyin_string[i - 1] == "y" or i - 1 >= 0 and pinyin_string[i - 1] == "u":
