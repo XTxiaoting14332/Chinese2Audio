@@ -21,5 +21,8 @@ pip install pypinyin pydub
 ```
 python audio.py
 ```
+
+**Windows下请以管理员身份运行**
+
 </p></p>
 <strong>目前仅支持中文、数字、小数点、加减乘除符号的朗读，英文朗读暂不支持</strong>
