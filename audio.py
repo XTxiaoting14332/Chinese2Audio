@@ -213,8 +213,7 @@ def audio(char, text):
             out = ''
         elif i - 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "ī" or i - 1 >= 0 and pinyin_string[i - 1] == "í" or i - 1 >= 0 and pinyin_string[i - 1] == "ǐ" or i - 1 >= 0 and pinyin_string[i - 1] == "ì":
             out = ''
-        elif i - 1 >= 0 and pinyin_string[i - 1] == "u" or i - 1 >= 0 and pinyin_string[i - 1] == "ū" or i - 1 >= 0 and pinyin_string[i - 1] == "ú" or i - 1 >= 0 and pinyin_string[i - 1] == "ǔ" or i - 1 >= 0 and pinyin_string[i - 1] == "ù":
-            out = ''
+
 
     elif char == "g":
         if i - 2 >= 0 and pinyin_string[i - 1] == "n":
@@ -234,9 +233,54 @@ def audio(char, text):
         else:
             out = char
     
+    elif char == "1":
+        out = "y\nī"
 
+    elif char == "2":
+        out = "èr"
+    
+    elif char == "3":
+        out = "s\nān"
 
-            
+    elif char == "4":
+        out = "sì"
+
+    elif char == "5":
+        out = "w\nǔ"
+
+    elif char == "6":
+        out = "l\niù"
+
+    elif char == "7":
+        out = "q\nī"
+
+    elif char == "8":
+        out = "b\nā"
+
+    elif char == "9":
+        out = "j\niǔ"
+
+    elif char == "0":
+        out = "l\níng"
+
+    elif char == ".":
+        out = "d\ni\nǎn"
+
+    elif char == "+":
+        out = "j\ni\nā"
+    
+    elif char == "-":
+        out = "j\ni\nǎn"    
+
+    elif char == "*":
+        out = "ch\néng"
+
+    elif char == "/":
+        out = "ch\nú"
+
+    elif char == "=":
+        out = "dy"
+
     else:
         if is_punctuation(text) == True or text == "、" or text == "，" or text == "。" or text == "？" or text == "《" or text == "》" or text == "“" or text == "”" or text == "——" or text == "【" or text == "】" or text == "：":
             out = "none"
@@ -250,7 +294,6 @@ def audio(char, text):
             file.write(out + '\n')
     return out
 
-
 try:
     # 获取输入
     input_text = input('Input: ')
@@ -259,20 +302,28 @@ try:
         # 获取逐个字分解的拼音
         pinyin_string = split_pinyin_characters(text)
         
-        # 创建缓存文件
+        # 创建缓存文件        
 
         if text.isspace():
             cache = "cache/none"
-            text = "none"
+            text = "Unknown"
         else:
-            cache = "cache/" + text
-        with open(cache, 'w', encoding='utf-8') as file:
-            for i in range(len(pinyin_string)):
-                result = audio(pinyin_string[i], text)
-                if len(result) == 0:
-                    pass
-                else:
-                    file.write(result + '\n')
+
+            try:
+                cache = "cache/" + text
+                with open(cache, 'w', encoding='utf-8') as file:
+                    for i in range(len(pinyin_string)):
+                        result = audio(pinyin_string[i], text)
+                        if len(result) == 0:
+                            pass
+                        else:
+                            file.write(result + '\n')
+            except IsADirectoryError:
+                cache = "cache/dot"
+                with open(cache, 'w', encoding='utf-8') as file:
+                        file.write("d\ni\nǎn" + '\n')
+
+
 
         # 提取拼音并合成
         with open(cache, 'r', encoding='utf-8') as file:
@@ -319,12 +370,13 @@ try:
                         play(combined_audio)
                         os.remove(cache)
             except OSError:
-                print("正在朗读："+text)
+                print("正在朗读：Unknown"+"("+text+")")
                 audio1 = "audio/none.mp3"
                 audioload1 = AudioSegment.from_file(audio1)
                 audioload1 = audioload1.speedup(playback_speed=5)
                 play(audioload1)
                 os.remove(cache)
+
         
 except KeyboardInterrupt:
     print("\n操作被用户取消")
