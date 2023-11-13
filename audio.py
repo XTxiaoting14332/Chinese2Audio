@@ -59,12 +59,13 @@ def audio(char, text):
                 out = char + "ng"
             else:
                 out = char + "n"
-        elif i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i":
-            out = char + "i"
+
         elif i + 1  < len(pinyin_string) and pinyin_string[ i + 1] == "r":
             out = char + "r"
         elif i - 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "u" or i - 1 >= 0 and pinyin_string[i - 1] == "y":
             out = ''
+        elif i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i":
+            out = char + "i"
         else:
             out = char
             
@@ -79,8 +80,7 @@ def audio(char, text):
                 out = char + "n"
         if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "e" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ē" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "é" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ě" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "è":
             out = char + pinyin_string[i + 1]
-        if i - 1 >= 0 and pinyin_string[i - 1] == "e" or i - 1 >= 0 and pinyin_string[i - 1] == "ē" or i - 1 >= 0 and pinyin_string[i - 1] == "é" or i - 1 >= 0 and pinyin_string[i - 1] == "ě" or i - 1 >= 0 and pinyin_string[i - 1] == "è":
-            out = ''
+
         elif i - 1 >= 0 and pinyin_string[i - 1] == "z" or i - 1 >= 0 and pinyin_string[i - 1] == "c" or i - 1 >= 0 and pinyin_string[i - 1] == "s" or i - 1 >= 0 and pinyin_string[i - 1] == "r":
             out = ''
         elif i - 1 >=0 and pinyin_string[i - 1] == "h" or i - 1 >=0 and pinyin_string[i - 1] == "y" or i - 1 >= 0 and pinyin_string[i - 1] == "u":
@@ -89,6 +89,9 @@ def audio(char, text):
             out = ''
         elif i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "u" or  i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ū" or  i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ú" or  i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǔ" or  i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ù":
             out = char + pinyin_string[i + 1]
+
+        elif i - 1 >= 0 and pinyin_string[i - 1] == "e" or i - 1 >= 0 and pinyin_string[i - 1] == "ē" or i - 1 >= 0 and pinyin_string[i - 1] == "é" or i - 1 >= 0 and pinyin_string[i - 1] == "ě" or i - 1 >= 0 and pinyin_string[i - 1] == "è":
+            out = ''
         else:
             out = char
 
@@ -352,7 +355,7 @@ try:
                         combined_audio = combined_audio.speedup(playback_speed=4)
                         combined_audio = combined_audio + 5
                         play(combined_audio)
-                        os.remove(cache)
+                        #os.remove(cache)
                 elif len(lines) == 3:
                         audio1 = "audio/" + lines[0].rstrip("\n") + ".mp3"
                         audio2 = "audio/" + lines[1].rstrip("\n") + ".mp3"
