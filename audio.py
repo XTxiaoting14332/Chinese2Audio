@@ -72,18 +72,18 @@ def audio(char, text):
 
 
     #i
-    elif char == "i" or char == "i" or char == "ī" or char == "í" or  char == "ǐ" or char == "ì":
+    elif char == "i" or char == "ī" or char == "í" or  char == "ǐ" or char == "ì":
         if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "n":
             if i + 2 < len(pinyin_string) and pinyin_string[i + 2] == "g":
                 out = char + "ng"
             else:
                 out = char + "n"
-        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "e" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ē" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "é" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ě" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "è":
+        elif i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "e" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ē" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "é" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ě" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "è":
             out = char + pinyin_string[i + 1]
 
         elif i - 1 >= 0 and pinyin_string[i - 1] == "z" or i - 1 >= 0 and pinyin_string[i - 1] == "c" or i - 1 >= 0 and pinyin_string[i - 1] == "s" or i - 1 >= 0 and pinyin_string[i - 1] == "r":
             out = ''
-        elif i - 1 >=0 and pinyin_string[i - 1] == "h" or i - 1 >=0 and pinyin_string[i - 1] == "y" or i - 1 >= 0 and pinyin_string[i - 1] == "u":
+        elif i - 1 >=0 and pinyin_string[i - 1] == "h" or i - 1 >=0 or i - 1 >= 0 and pinyin_string[i - 1] == "u":
             out = ''
         elif i - 1 >= 0 and pinyin_string[i - 1] == "a" or i - 1 >= 0 and pinyin_string[i - 1] == "ā" or i - 1 >= 0 and pinyin_string[i - 1] == "á" or i - 1 >= 0 and pinyin_string[i - 1] == "ǎ" or i - 1 >= 0 and pinyin_string[i - 1] == "à":
             out = ''
@@ -92,8 +92,6 @@ def audio(char, text):
 
         elif i - 1 >= 0 and pinyin_string[i - 1] == "e" or i - 1 >= 0 and pinyin_string[i - 1] == "ē" or i - 1 >= 0 and pinyin_string[i - 1] == "é" or i - 1 >= 0 and pinyin_string[i - 1] == "ě" or i - 1 >= 0 and pinyin_string[i - 1] == "è":
             out = ''
-        else:
-            out = char
 
     #s
     elif char == "s":
@@ -213,18 +211,18 @@ def audio(char, text):
     elif char == "y":
         if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "e" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ē" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "é" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ě" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "è":
             out = char + pinyin_string[i + 1]
+            
     elif char == "n":
         if i - 1 >= 0 and (pinyin_string[i - 1] == "a" or pinyin_string[i - 1] == "ā" or pinyin_string[i - 1] == "á" or pinyin_string[i - 1] == "ǎ" or pinyin_string[i - 1] == "à") or i - 1 >= 0 and pinyin_string[i - 1] == "o" or pinyin_string[i - 1] == "ō" or pinyin_string[i - 1] == "ó" or pinyin_string[i - 1] == "ǒ" or pinyin_string[i - 1] == "ò" or i - 1 >= 0 and pinyin_string[i - 1] == "e" or pinyin_string[i - 1] == "ē" or pinyin_string[i - 1] == "é" or pinyin_string[i - 1] == "ě" or pinyin_string[i - 1] == "è":
             out = ''
-        elif i - 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "ī" or i - 1 >= 0 and pinyin_string[i - 1] == "í" or i - 1 >= 0 and pinyin_string[i - 1] == "ǐ" or i - 1 >= 0 and pinyin_string[i - 1] == "ì":
+        elif i + 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "ī" or i - 1 >= 0 and pinyin_string[i - 1] == "í" or i - 1 >= 0 and pinyin_string[i - 1] == "ǐ" or i - 1 >= 0 and pinyin_string[i - 1] == "ì":
             out = ''
 
 
     elif char == "g":
         if i - 2 >= 0 and pinyin_string[i - 1] == "n":
             out = ''
-        else:
-            out = char
+
     
     elif char == "h":
         if i - 1 >= 0 and pinyin_string[i - 1] == "z" or i - 1 >= 0 and pinyin_string[i - 1] == "c" or i - 1 >= 0 and pinyin_string[i - 1] == "s":
@@ -339,10 +337,11 @@ try:
                         audio1 = "audio/" + lines[0].rstrip("\n") + ".mp3"
                         audioload1 = AudioSegment.from_file(audio1)
                         combined_audio = audioload1
-                        combined_audio = combined_audio.speedup(playback_speed=4)
+                        combined_audio = combined_audio.speedup(playback_speed=3)
                         combined_audio = combined_audio + 5
                         play(combined_audio)
-                        os.remove(cache)                
+                        print(pinyin_string)
+                        #os.remove(cache)                
                 elif len(lines) == 2:
                         audio1 = "audio/" + lines[0].rstrip("\n") + ".mp3"
                         audio2 = "audio/" + lines[1].rstrip("\n") + ".mp3"
@@ -355,7 +354,8 @@ try:
                         combined_audio = combined_audio.speedup(playback_speed=4)
                         combined_audio = combined_audio + 5
                         play(combined_audio)
-                        os.remove(cache)
+                        print(pinyin_string)
+                        #os.remove(cache)
                 elif len(lines) == 3:
                         audio1 = "audio/" + lines[0].rstrip("\n") + ".mp3"
                         audio2 = "audio/" + lines[1].rstrip("\n") + ".mp3"
