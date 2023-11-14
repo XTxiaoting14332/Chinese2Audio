@@ -228,10 +228,6 @@ def audio(char, text):
         if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
             out = char + '\n' + pinyin_string[i + 1]
 
-    elif char == "n":
-        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
-            out = char + '\n' + pinyin_string[i + 1]
-
     elif char == "l":
         if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
             out = char + '\n' + pinyin_string[i + 1]
@@ -266,6 +262,8 @@ def audio(char, text):
             out = ''
         elif i - 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "ī" or i - 1 >= 0 and pinyin_string[i - 1] == "í" or i - 1 >= 0 and pinyin_string[i - 1] == "ǐ" or i - 1 >= 0 and pinyin_string[i - 1] == "ì":
             out = ''
+        elif i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
 
 
 
