@@ -74,13 +74,11 @@ def audio(char, text):
     #i
     elif char == "i" or char == "ī" or char == "í" or  char == "ǐ" or char == "ì":
         if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "n":
-            if i + 2 < len(pinyin_string) and pinyin_string[i + 2] == "g":
-                out = char + "ng"
-            else:
-                out = char + "n"
+            out = char + "n"
+        elif i + 1 < len(pinyin_string) and i + 2 < len(pinyin_string) and pinyin_string[i + 1] == "n" and pinyin_string[i + 2] == "g":
+            out = char + "ng"
         elif i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "e" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ē" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "é" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ě" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "è":
-            out = char + pinyin_string[i + 1]
-
+                out = char + pinyin_string[i + 1]
         elif i - 1 >= 0 and pinyin_string[i - 1] == "z" or i - 1 >= 0 and pinyin_string[i - 1] == "c" or i - 1 >= 0 and pinyin_string[i - 1] == "s" or i - 1 >= 0 and pinyin_string[i - 1] == "r":
             out = ''
         elif i - 1 >=0 and pinyin_string[i - 1] == "h" or i - 1 >=0 or i - 1 >= 0 and pinyin_string[i - 1] == "u":
@@ -89,10 +87,12 @@ def audio(char, text):
             out = ''
         elif i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "u" or  i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ū" or  i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ú" or  i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǔ" or  i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ù":
             out = char + pinyin_string[i + 1]
-
         elif i - 1 >= 0 and pinyin_string[i - 1] == "e" or i - 1 >= 0 and pinyin_string[i - 1] == "ē" or i - 1 >= 0 and pinyin_string[i - 1] == "é" or i - 1 >= 0 and pinyin_string[i - 1] == "ě" or i - 1 >= 0 and pinyin_string[i - 1] == "è":
-            out = ''
-
+            out = '' 
+        else:
+            out = char
+                      
+ 
     #s
     elif char == "s":
         if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "h":
@@ -204,8 +204,57 @@ def audio(char, text):
                 out = char + pinyin_string[i + 1]
     
 
+    elif char == "b":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
+ 
+    elif char == "p":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
 
+    elif char == "m":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
 
+    elif char == "f":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
+
+    elif char == "d":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
+
+    elif char == "t":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
+
+    elif char == "n":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
+
+    elif char == "l":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
+
+    elif char == "g":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
+
+    elif char == "k":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
+
+    elif char == "j":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
+
+    elif char == "q":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
+
+    elif char == "x":
+        if i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "i" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ī" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "í" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ǐ" or i + 1 < len(pinyin_string) and pinyin_string[i + 1] == "ì":
+            out = char + '\n' + pinyin_string[i + 1]
     ######n与g等的检测
             #y
     elif char == "y":
@@ -215,8 +264,9 @@ def audio(char, text):
     elif char == "n":
         if i - 1 >= 0 and (pinyin_string[i - 1] == "a" or pinyin_string[i - 1] == "ā" or pinyin_string[i - 1] == "á" or pinyin_string[i - 1] == "ǎ" or pinyin_string[i - 1] == "à") or i - 1 >= 0 and pinyin_string[i - 1] == "o" or pinyin_string[i - 1] == "ō" or pinyin_string[i - 1] == "ó" or pinyin_string[i - 1] == "ǒ" or pinyin_string[i - 1] == "ò" or i - 1 >= 0 and pinyin_string[i - 1] == "e" or pinyin_string[i - 1] == "ē" or pinyin_string[i - 1] == "é" or pinyin_string[i - 1] == "ě" or pinyin_string[i - 1] == "è":
             out = ''
-        elif i + 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "ī" or i - 1 >= 0 and pinyin_string[i - 1] == "í" or i - 1 >= 0 and pinyin_string[i - 1] == "ǐ" or i - 1 >= 0 and pinyin_string[i - 1] == "ì":
+        elif i - 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "i" or i - 1 >= 0 and pinyin_string[i - 1] == "ī" or i - 1 >= 0 and pinyin_string[i - 1] == "í" or i - 1 >= 0 and pinyin_string[i - 1] == "ǐ" or i - 1 >= 0 and pinyin_string[i - 1] == "ì":
             out = ''
+
 
 
     elif char == "g":
