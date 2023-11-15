@@ -376,13 +376,13 @@ try:
         with open(cache, 'r', encoding='utf-8') as file:
             lines = file.readlines()
             try:
-                print("正在朗读："+text)
                 if len(lines) == 1:
                         audio1 = "audio/" + lines[0].rstrip("\n") + ".mp3"
                         audioload1 = AudioSegment.from_file(audio1)
                         combined_audio = audioload1
                         combined_audio = combined_audio.speedup(playback_speed=3)
                         combined_audio = combined_audio + 5
+                        print("正在朗读："+text)
                         play(combined_audio)
                         os.remove(cache)                
                 elif len(lines) == 2:
@@ -396,6 +396,7 @@ try:
                         combined_audio = audioload1 + audioload2
                         combined_audio = combined_audio.speedup(playback_speed=4)
                         combined_audio = combined_audio + 5
+                        print("正在朗读："+text)
                         play(combined_audio)
                         os.remove(cache)
                 elif len(lines) == 3:
@@ -414,6 +415,7 @@ try:
                         combined_audio = combined_audio + 2
                         combined_audio = combined_audio.speedup(playback_speed=3)
                         combined_audio = combined_audio
+                        print("正在朗读："+text)
                         play(combined_audio)
                         os.remove(cache)
             except OSError:
