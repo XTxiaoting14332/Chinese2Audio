@@ -390,7 +390,7 @@ try:
                         audio2 = "audio/" + lines[1].rstrip("\n") + ".mp3"
                         audioload1 = AudioSegment.from_file(audio1)
                         audioload1 = audioload1 - 2
-                        audioload1 = audioload1.speedup(playback_speed=35)
+                        audioload1 = audioload1.speedup(playback_speed=30)
                         audioload2 = AudioSegment.from_file(audio2)
                         audioload2 = audioload2 
                         combined_audio = audioload1 + audioload2
@@ -412,7 +412,7 @@ try:
                         audioload3 = audioload3 + 2
                         combined_audio = audioload1 + audioload2 + audioload3
                         combined_audio = combined_audio + 2
-                        combined_audio = combined_audio.speedup(playback_speed=4)
+                        combined_audio = combined_audio.speedup(playback_speed=3)
                         combined_audio = combined_audio
                         play(combined_audio)
                         os.remove(cache)
