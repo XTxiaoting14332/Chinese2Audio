@@ -343,7 +343,8 @@ def audio(char, text):
 
 try:
     # 获取输入
-    input_text = input('Input: ')
+    input = input('Input: ')
+    input_text = str(input.upper())
     
     for text in input_text:
         # 获取逐个字分解的拼音
@@ -394,7 +395,7 @@ try:
                         audioload2 = AudioSegment.from_file(audio2)
                         audioload2 = audioload2 
                         combined_audio = audioload1 + audioload2
-                        combined_audio = combined_audio.speedup(playback_speed=4)
+                        combined_audio = combined_audio.speedup(playback_speed=5)
                         combined_audio = combined_audio + 5
                         print("正在朗读："+text)
                         play(combined_audio)
