@@ -21,6 +21,22 @@ pip install pypinyin pydub
 ```
 python audio.py
 ```
+如果要启动webUI,请安装以下依赖
+
+```
+pip install flask sounddevice scipy pyaudio
+```
+
+**安装不了pyaudio的请自行查找解决办法**
+
+
+启动WebUI
+
+```
+python web_demo.py
+```
+
+这会在http://127.0.0.1:5000上开启一个webUI
 
 **Windows下请以管理员身份运行**
 
