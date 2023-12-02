@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta charset="utf-8" />
+
+	<META HTTP-EQUIV = "Pragma" CONTENT="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Chinese2Audio-WebUI </title>
+
+
+    <script>
+        function showPopup() {
+            var list = "ai   àng  b    d   ē    èr  iē   ín  l     ong  Q    sì  uí  ǖ   w    zhī\nái   ǎng  B    D   eng  ěr  i    ìn  L     óng  rí   sǐ  uì  ū   W    zh\nài   āng  chí  dy  éng  ēr  I    ǐn  m     òng  rì   sī  uǐ  un  x    zi\nǎi   an   chì  ei  èng  f   í    īn  M     ǒng  rǐ   s   uī  ún  X    zí\nāi   án   chǐ  éi  ěng  F   ì    iu  n     ōng  rī   S   u   ùn  yé   zì\na    àn   chī  èi  ēng  g   ǐ    iú  N     ou   r    t   U   ǔn  yè   zǐ\nA    ǎn   ch   ěi  en   G   ī    iù  none  óu   R    T   ú   ün  yě   zī\ná    ān   cí   ēi  én   h   ing  iǔ  o     òu   shí  ué  ù   ǘn  yē   z\nà    ao   cì   e   èn   H   íng  iū  O     ǒu   shì  uè  ǔ   ǜn  y    Z\nǎ    áo   cǐ   E   ěn   ie  ìng  j   ó     ōu   shǐ  uě  ü   ǚn  Y\nā    ào   cī   é   ēn   ié  ǐng  J   ò     p    shī  uē  ǘ   ǖn  zhí\nang  ǎo   c    è   er   iè  īng  k   ǒ     P    sh   üe  ǜ   ūn  zhì\náng  āo   C    ě   ér   iě  in   K   ō     q    sí   ui  ǚ   V   zhǐ\n\n其中大写为26个英文字母"
+            alert(list);
+        }
+    </script>
+	<script>
+        function showPage(pageId) {
+            var contentBlocks = document.querySelectorAll(".content");
+            for (var i = 0; i < contentBlocks.length; i++) {
+                contentBlocks[i].style.display = "none";
+            }
+
+            var selectedContent = document.getElementById(pageId);
+            selectedContent.style.display = "block";
+        }
+    </script>
+    <script>
+        function showPage(pageId) {
+            var contentBlocks = document.querySelectorAll(".content");
+            for (var i = 0; i < contentBlocks.length; i++) {
+                contentBlocks[i].style.display = "none";
+            }
+
+            var selectedContent = document.getElementById(pageId);
+            selectedContent.style.display = "block";
+        }
+
+        window.onload = function() {
+            showPage('page1');
+        };
+    </script>
+
+    <script>
+        function submitForm() {
+            var hiddenText = document.getElementById("hiddenText");
+
+            // 显示文本
+            hiddenText.style.display = "block";
+
+            // 两秒后隐藏文本
+            setTimeout(function () {
+                hiddenText.style.display = "none";
+            }, 1500);
+
+            // 异步提交表单
+            var formData = new FormData(document.getElementById("recForm"));
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "{{ url_for('rec') }}", true);
+            xhr.send(formData);
+        }
+    </script>
+    <script>
+        let timeRemaining = 1.5;
+        let timer;
+
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.textContent = timeRemaining.toFixed(2);
+
+            if (timeRemaining <= 0) {
+                clearInterval(timer);
+                countdownElement.textContent = '录音已储存';
+                setTimeout(() => {
+                    countdownElement.style.display = 'none';
+                }, 1000); // 延迟1秒后隐藏
+            } else {
+                timeRemaining -= 0.01;
+            }
+        }
+
+        function startCountdown() {
+            clearInterval(timer);
+            timeRemaining = 1.5;
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.style.display = 'block';
+            timer = setInterval(updateCountdown, 10);
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+         
+        html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            -moz-background-size: cover; 
+        }
+         
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("https://t.mwm.moe/fj/"); /* 设置背景图的URL */
+            background-size: cover; /* 适应尺寸 */
+            background-position: center; /* 居中对齐 */
+            background-repeat: no-repeat; /* 不重复平铺 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }a
+         
+        #loginDiv {
+            width: 37%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background-color: rgba(20, 20, 20, 0.5);
+            box-shadow: 7px 7px 17px rgba(20, 20, 20, 0.5);
+            border-radius: 5px;
+        }
+         
+        #name_trip {
+            margin-left: 50px;
+            color: red;
+        }
+         
+        p {
+            margin-top: 30px;
+            margin-left: 20px;
+            color: azure;
+        }
+         
+        input {
+            margin-left: 15px;
+            border-radius: 5px;
+            border-style: hidden;
+            height: 30px;
+            width: 140px;
+           background-color: rgba(216, 191, 216, 0.5);
+            outline: none;
+            color: #f0edf3;
+            padding-left: 10px;
+        }
+         
+        .button {
+            border-color: cornsilk;
+            background-color: rgba(100, 149, 237, .7);
+            color: aliceblue;
+            border-style: hidden;
+            border-radius: 5px;
+            width: 100px;
+            height: 31px;
+            font-size: 16px;
+        }
+
+        a {
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            color: #f0edf3;
+        }
+        
+        .image {
+            width: 400px;
+            height: 300px;
+            background-image: url("https://t.mwm.moe/fj/"); /* 设置背景图的URL */
+            background-size: cover; /* 适应尺寸 */
+            background-position: center; /* 居中对齐 */
+            background-repeat: no-repeat; /* 不重复平铺 */
+        }
+        
+        .blur {
+            width: 300px;
+            background-color: rgba(200, 200, 200, 0.15); 
+            backdrop-filter: blur(5px); 
+            border-radius: 10px; 
+            padding: 20px;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        .input-container {
+            margin-bottom: 10px;
+        }
+        
+        .button-container {
+        display: inline-block;
+        margin: 10px; /* 调整按钮之间的间距 */
+    }
+
+    @media screen and (max-width: 768px) {
+        /* 当屏幕宽度小于等于 768px 时，按钮容器居中对齐 */
+        div[style*="display: flex; justify-content: center; align-items: center;"] {
+            flex-direction: column;
+        }
+        
+        .button-container {
+            margin: 5px; /* 调整按钮之间的间距 */
+        }
+    }
+    </style>
+    <style>
+        #hiddenText {
+            display: none;
+        }
+    </style>
+    <style>
+         #countdown {
+            display: none; 
+        }
+    </style>
+</head>
+ 
+<body>
+<div class="blur">
+    <div class="content" id="page1">
+        <form action="{{ url_for('chinese2audio') }}" method="post">
+            <h1 style="text-align: center;color: rgb(255, 255, 255);">Chinese2Audio</br>WebUI</h1>
+            <p style="color: rgb(255, 255, 255);">输入你要朗读的文本：
+                <br><input type="text" size="20" name="input_text"></p>
+            <div style="text-align: center;margin-top: 30px;">
+                <input type="submit" class="button" name="read" value="朗读">
+                <input type="reset" class="button" value="清除">
+            </div>
+        </br><a href="javascript:void(0);" style="color: lightblue;" onclick="showPage('page2')">前往录制你的声音</a></p>
+        </form>
+    </div>
+
+    <div class="content" id="page2">
+        <form id="recForm" action="{{ url_for('rec') }}" method="post">
+            <h1>音素录制</h1>
+            <b style="color: yellow;">在相对安静的环境下进行录音，效果会更好</b>
+            <p style="color: rgb(255, 255, 255);">输入你要录制的音素</p>
+            <br><input type="text" size="20" name="rec_text"></p>
+            <p style="text-align: center;">
+                <button type="button" class="button" onclick="submitForm(); startCountdown()">录制</button>
+                <input type="reset" class="button" value="清除">
+            </p>
+            </p><div id="hiddenText"><p><span style="color: red;">●</span><span>正在录音...时长为1.5s</span></p></div>
+            <br><span style="color: #f0edf3;"><div id="countdown"></div></span>
+        </form><br><br>
+        <a><h3 style="color:#ffffff"><a href="javascript:void(0);" onclick="showPopup()">我需要录制哪些音素？</h3></a>
+        <br><a><h3 style="color:#ffffff"><a href="javascript:void(0);" style="color: lightblue;" onclick="showPage('page1')">上一页</h3></a>
+    </div>
+
+</div>
+
+</body>
+</html>
